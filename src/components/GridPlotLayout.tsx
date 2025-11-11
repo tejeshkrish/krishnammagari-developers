@@ -110,7 +110,7 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
             <p className="text-gray-300 font-medium text-sm sm:text-base">Tap any plot to view details</p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8">
+          <div className="flex flex-col-reverse lg:flex-row gap-4 sm:gap-6 lg:gap-8">
             <div className="flex-1 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-xl sm:rounded-2xl p-2 sm:p-4 lg:p-8 shadow-2xl overflow-x-auto">
 
               <div className="border-2 sm:border-4 border-blue-600 p-0 relative bg-white" style={{ minWidth: '320px', maxWidth: '1600px', margin: '0 auto' }}>
@@ -170,7 +170,7 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
                           <Plot id={18} />
                         </div>
 
-                        <div className="grid grid-cols-4 gap-0" style={{ height: '180px' }}>
+                        <div className="grid grid-cols-4 gap-0 h-[180px] sm:h-[180px] lg:h-[360px]">
                           <Plot id={25} />
                           <Plot id={24} />
                           <Plot id={23} />
