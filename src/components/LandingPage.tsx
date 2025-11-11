@@ -39,40 +39,40 @@ export default function LandingPage({ onViewLayout }: LandingPageProps) {
             <span className="text-sm font-medium text-gold-300">Premium Real Estate Development</span>
           </div>
 
-          <h1 className="text-5xl sm:text-6xl lg:text-7xl xl:text-8xl font-display font-bold mb-6 leading-tight animate-fade-in-up" style={{ animationDelay: '0.2s' }}>
+          <h1 className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-display font-bold mb-4 sm:mb-6 leading-tight animate-fade-in-up px-2" style={{ animationDelay: '0.2s' }}>
             <span className="text-white">Discover Your</span>
             <br />
             <span className="bg-gradient-to-r from-gold-300 via-gold-400 to-gold-500 bg-clip-text text-transparent">Perfect Plot</span>
           </h1>
 
-          <p className="text-base sm:text-lg text-gray-300 mb-12 leading-relaxed max-w-2xl mx-auto font-light animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-8 sm:mb-12 leading-relaxed max-w-2xl mx-auto font-light animate-fade-in px-4" style={{ animationDelay: '0.4s' }}>
             Exclusive residential plots in prime locations with clear titles and exceptional investment potential. Connect with us today to explore available opportunities.
           </p>
 
-          <div className="grid grid-cols-2 gap-6 sm:gap-8 mb-12 max-w-lg mx-auto animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <div className="backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-2xl p-6 shadow-xl">
-              <div className="text-4xl sm:text-5xl font-display font-bold text-gold-400 mb-2">25</div>
-              <div className="text-gray-400 text-sm font-medium">Premium Plots</div>
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:gap-8 mb-8 sm:mb-12 max-w-lg mx-auto px-4 animate-fade-in" style={{ animationDelay: '0.6s' }}>
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl">
+              <div className="text-3xl sm:text-4xl lg:text-5xl font-display font-bold text-gold-400 mb-1 sm:mb-2">25</div>
+              <div className="text-gray-400 text-xs sm:text-sm font-medium">Premium Plots</div>
             </div>
-            <div className="backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-2xl p-6 shadow-xl">
-              <div className="text-4xl sm:text-5xl mb-2">
-                <Sparkles className="w-10 h-10 sm:w-12 sm:h-12 text-gold-400 mx-auto" />
+            <div className="backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-xl">
+              <div className="text-3xl sm:text-4xl lg:text-5xl mb-1 sm:mb-2">
+                <Sparkles className="w-8 h-8 sm:w-10 sm:h-10 lg:w-12 lg:h-12 text-gold-400 mx-auto" />
               </div>
-              <div className="text-gray-400 text-sm font-medium">Prime Location</div>
+              <div className="text-gray-400 text-xs sm:text-sm font-medium">Prime Location</div>
             </div>
           </div>
 
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.8s' }}>
+          <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center px-4 animate-fade-in" style={{ animationDelay: '0.8s' }}>
             <button
               onClick={() => setShowContactModal(true)}
-              className="group px-8 py-4 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 hover:from-gold-500 hover:via-gold-600 hover:to-gold-700 text-black font-semibold rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/50 hover:scale-105 relative overflow-hidden"
+              className="group w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 hover:from-gold-500 hover:via-gold-600 hover:to-gold-700 text-black font-semibold text-sm sm:text-base rounded-xl transition-all duration-300 hover:shadow-2xl hover:shadow-gold-500/50 hover:scale-105 active:scale-95 relative overflow-hidden"
             >
               <span className="relative z-10">Get in Touch</span>
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent translate-x-[-100%] group-hover:translate-x-[100%] transition-transform duration-700"></div>
             </button>
             <button
               onClick={onViewLayout}
-              className="px-8 py-4 backdrop-blur-xl bg-slate-900/40 hover:bg-slate-800/60 border-2 border-gold-400/40 hover:border-gold-400/60 text-gold-200 hover:text-gold-100 font-semibold rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/20"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3.5 sm:py-4 backdrop-blur-xl bg-slate-900/40 hover:bg-slate-800/60 border-2 border-gold-400/40 hover:border-gold-400/60 text-gold-200 hover:text-gold-100 font-semibold text-sm sm:text-base rounded-xl transition-all duration-300 hover:shadow-xl hover:shadow-gold-500/20 active:scale-95"
             >
               View Plots
             </button>

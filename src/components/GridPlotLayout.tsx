@@ -61,11 +61,11 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
     return (
       <div
         onClick={() => setSelectedPlot(id)}
-        className={`${getStatusColor(info.status)} border-2 p-4 cursor-pointer hover:scale-105 hover:shadow-xl transition-all duration-200 flex flex-col items-center justify-center relative group`}
+        className={`${getStatusColor(info.status)} border sm:border-2 p-2 sm:p-4 cursor-pointer active:scale-95 hover:scale-105 hover:shadow-xl transition-all duration-200 flex flex-col items-center justify-center relative group touch-manipulation`}
       >
-        <div className="text-white font-display font-bold text-xl sm:text-2xl">#{id}</div>
-        <div className="text-white/90 text-xs sm:text-sm mt-1 font-medium">{info.width} × {info.depth}</div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity"></div>
+        <div className="text-white font-display font-bold text-sm sm:text-xl lg:text-2xl">#{id}</div>
+        <div className="text-white/90 text-[8px] sm:text-xs lg:text-sm mt-0.5 sm:mt-1 font-medium leading-tight">{info.width} × {info.depth}</div>
+        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity"></div>
       </div>
     );
   };
@@ -83,45 +83,45 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
 
       <div className="relative z-10">
         <div className="sticky top-0 z-40 backdrop-blur-xl bg-slate-900/60 border-b border-gold-500/20 shadow-2xl">
-          <div className="max-w-[1800px] mx-auto px-4 sm:px-6 py-4">
-            <div className="flex items-center justify-between gap-4">
+          <div className="max-w-[1800px] mx-auto px-3 sm:px-6 py-3 sm:py-4">
+            <div className="flex items-center justify-between gap-2 sm:gap-4">
               <button
                 onClick={onBack}
-                className="flex items-center gap-2 text-gold-400 hover:text-gold-300 transition-colors group"
+                className="flex items-center gap-1 sm:gap-2 text-gold-400 hover:text-gold-300 transition-colors group min-w-0"
               >
-                <ArrowLeft className="w-5 h-5 group-hover:-translate-x-1 transition-transform" />
-                <span className="font-semibold hidden sm:inline">Back to Home</span>
+                <ArrowLeft className="w-4 h-4 sm:w-5 sm:h-5 group-hover:-translate-x-1 transition-transform flex-shrink-0" />
+                <span className="font-semibold text-sm sm:text-base hidden xs:inline">Back</span>
               </button>
-              <h1 className="text-lg sm:text-2xl font-display font-bold bg-gradient-to-r from-white via-gold-200 to-gold-400 bg-clip-text text-transparent">
+              <h1 className="text-sm sm:text-lg lg:text-2xl font-display font-bold bg-gradient-to-r from-white via-gold-200 to-gold-400 bg-clip-text text-transparent truncate">
                 Krishnammagari Developers
               </h1>
               <button
                 onClick={() => setShowContactModal(true)}
-                className="px-4 sm:px-6 py-2.5 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-black font-semibold rounded-xl hover:from-gold-500 hover:via-gold-600 hover:to-gold-700 transition-all duration-300 shadow-lg hover:shadow-gold-400/50 text-sm sm:text-base"
+                className="px-3 sm:px-4 lg:px-6 py-2 sm:py-2.5 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-black font-semibold rounded-lg sm:rounded-xl hover:from-gold-500 hover:via-gold-600 hover:to-gold-700 transition-all duration-300 shadow-lg hover:shadow-gold-400/50 text-xs sm:text-sm lg:text-base whitespace-nowrap flex-shrink-0"
               >
-                Inquire Now
+                Inquire
               </button>
             </div>
           </div>
         </div>
 
-        <div className="max-w-[1800px] mx-auto px-4 sm:px-6 py-6 sm:py-8">
-          <div className="mb-6 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-2xl p-4 sm:p-6">
-            <p className="text-gray-300 font-medium">Click on any plot to view details</p>
+        <div className="max-w-[1800px] mx-auto px-3 sm:px-4 lg:px-6 py-4 sm:py-6 lg:py-8">
+          <div className="mb-4 sm:mb-6 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-xl sm:rounded-2xl p-3 sm:p-4 lg:p-6">
+            <p className="text-gray-300 font-medium text-sm sm:text-base">Tap any plot to view details</p>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-6 lg:gap-8">
-            <div className="flex-1 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-2xl p-4 sm:p-6 lg:p-8 shadow-2xl">
+          <div className="flex flex-col lg:flex-row gap-4 sm:gap-6 lg:gap-8">
+            <div className="flex-1 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-xl sm:rounded-2xl p-2 sm:p-4 lg:p-8 shadow-2xl overflow-x-auto">
 
-              <div className="border-4 border-blue-600 p-0 relative bg-white" style={{ maxWidth: '1600px', margin: '0 auto' }}>
+              <div className="border-2 sm:border-4 border-blue-600 p-0 relative bg-white" style={{ minWidth: '320px', maxWidth: '1600px', margin: '0 auto' }}>
 
                 <div className="flex">
 
                   <div className="flex-1">
 
 
-                    <div className="grid grid-cols-[1fr_60px_1fr_60px]">
-                      <div className="grid grid-rows-[100px_100px_100px_100px_100px_100px_100px_100px_100px]">
+                    <div className="grid grid-cols-[1fr_40px_1fr_40px] sm:grid-cols-[1fr_60px_1fr_60px]">
+                      <div className="grid grid-rows-[60px_60px_60px_60px_60px_60px_60px_60px_60px] sm:grid-rows-[100px_100px_100px_100px_100px_100px_100px_100px_100px]">
                         <Plot id={17} />
                         <Plot id={16} />
                         <Plot id={15} />
@@ -133,11 +133,11 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
                         <Plot id={9} />
                       </div>
 
-                      <div className="bg-slate-300 border-x-2 border-slate-500 flex items-center justify-center">
-                        <span className="transform -rotate-90 text-xs font-bold whitespace-nowrap">25'-0" WIDE ROAD</span>
+                      <div className="bg-slate-300 border-x border-slate-500 sm:border-x-2 flex items-center justify-center">
+                        <span className="transform -rotate-90 text-[8px] sm:text-xs font-bold whitespace-nowrap">25'-0" ROAD</span>
                       </div>
 
-                      <div className="grid grid-rows-[112.5px_112.5px_112.5px_112.5px_112.5px_112.5px_112.5px_112.5px]">
+                      <div className="grid grid-rows-[67.5px_67.5px_67.5px_67.5px_67.5px_67.5px_67.5px_67.5px] sm:grid-rows-[112.5px_112.5px_112.5px_112.5px_112.5px_112.5px_112.5px_112.5px]">
                         <Plot id={1} />
                         <Plot id={2} />
                         <Plot id={3} />
@@ -148,29 +148,29 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
                         <Plot id={8} />
                       </div>
 
-                      <div className="bg-slate-300 border-x-2 border-slate-500 flex items-center justify-center">
-                        <span className="transform -rotate-90 text-xs font-bold whitespace-nowrap">25'-0" WIDE ROAD</span>
+                      <div className="bg-slate-300 border-x border-slate-500 sm:border-x-2 flex items-center justify-center">
+                        <span className="transform -rotate-90 text-[8px] sm:text-xs font-bold whitespace-nowrap">25'-0" ROAD</span>
                       </div>
                     </div>
 
-                    <div className="bg-slate-300 border-y-2 border-slate-500 h-12 flex items-center justify-center text-xs font-bold">
-                      25'-0" WIDE ROAD
+                    <div className="bg-slate-300 border-y border-slate-500 sm:border-y-2 h-8 sm:h-12 flex items-center justify-center text-[8px] sm:text-xs font-bold">
+                      25'-0" ROAD
                     </div>
 
                     <div className="flex">
-                      <div className="w-16 bg-slate-300 border-r-2 border-slate-500 flex items-center justify-center">
-                        <span className="transform -rotate-90 text-xs font-bold whitespace-nowrap">25'-0" WIDE ROAD</span>
+                      <div className="w-10 sm:w-16 bg-slate-300 border-r border-slate-500 sm:border-r-2 flex items-center justify-center">
+                        <span className="transform -rotate-90 text-[8px] sm:text-xs font-bold whitespace-nowrap">25'-0" ROAD</span>
                       </div>
 
                       <div className="flex-1">
-                        <div className="grid grid-cols-4 gap-0 h-32">
+                        <div className="grid grid-cols-4 gap-0 h-20 sm:h-32">
                           <Plot id={21} />
                           <Plot id={20} />
                           <Plot id={19} />
                           <Plot id={18} />
                         </div>
 
-                        <div className="grid grid-cols-4 gap-0" style={{ height: '300px' }}>
+                        <div className="grid grid-cols-4 gap-0" style={{ height: '180px' }}>
                           <Plot id={25} />
                           <Plot id={24} />
                           <Plot id={23} />
@@ -181,9 +181,9 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
                   </div>
                 </div>
 
-                <div className="bg-slate-700 border-t-2 border-slate-800 p-6 text-center">
-                  <div className="text-white font-bold text-2xl mb-3">NH-4 HIGHWAY</div>
-                  <div className="flex justify-between text-yellow-400 text-base font-bold px-12">
+                <div className="bg-slate-700 border-t border-slate-800 sm:border-t-2 p-3 sm:p-6 text-center">
+                  <div className="text-white font-bold text-sm sm:text-2xl mb-2 sm:mb-3">NH-4 HIGHWAY</div>
+                  <div className="flex justify-between text-yellow-400 text-xs sm:text-base font-bold px-2 sm:px-12">
                     <span>← BANGALORE</span>
                     <span>TIRUPATHI →</span>
                   </div>
@@ -191,43 +191,43 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
               </div>
             </div>
 
-            <div className="w-full lg:w-96 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-2xl p-6 shadow-2xl">
-              <h2 className="text-2xl font-display font-bold text-white mb-6 bg-gradient-to-r from-white via-gold-200 to-gold-400 bg-clip-text text-transparent">
+            <div className="w-full lg:w-96 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl">
+              <h2 className="text-xl sm:text-2xl font-display font-bold text-white mb-4 sm:mb-6 bg-gradient-to-r from-white via-gold-200 to-gold-400 bg-clip-text text-transparent">
                 Plot Details
               </h2>
 
               {selectedPlot ? (
-                <div className="space-y-4">
-                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-xl p-5 border border-gold-500/20 shadow-lg">
-                    <div className="text-gray-400 text-sm mb-2 font-medium">Plot Number</div>
-                    <div className="text-white text-4xl font-display font-bold">#{selectedPlot}</div>
+                <div className="space-y-3 sm:space-y-4">
+                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-gold-500/20 shadow-lg">
+                    <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2 font-medium">Plot Number</div>
+                    <div className="text-white text-3xl sm:text-4xl font-display font-bold">#{selectedPlot}</div>
                   </div>
 
-                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-xl p-5 border border-gold-500/20 shadow-lg">
-                    <div className="text-gray-400 text-sm mb-2 font-medium">Dimensions</div>
-                    <div className="text-gold-300 text-xl font-semibold">
+                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-gold-500/20 shadow-lg">
+                    <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2 font-medium">Dimensions</div>
+                    <div className="text-gold-300 text-lg sm:text-xl font-semibold">
                       {getPlotInfo(selectedPlot)?.width} × {getPlotInfo(selectedPlot)?.depth}
                     </div>
                   </div>
 
-                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-xl p-5 border border-gold-500/20 shadow-lg">
-                    <div className="text-gray-400 text-sm mb-2 font-medium">Area</div>
-                    <div className="text-gold-300 text-xl font-semibold">
+                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-gold-500/20 shadow-lg">
+                    <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2 font-medium">Area</div>
+                    <div className="text-gold-300 text-lg sm:text-xl font-semibold">
                       {getPlotInfo(selectedPlot)?.sqFt} sq. ft
                     </div>
                   </div>
 
                   <button
                     onClick={() => setShowContactModal(true)}
-                    className="w-full mt-6 px-6 py-4 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-black font-semibold rounded-xl hover:from-gold-500 hover:via-gold-600 hover:to-gold-700 transition-all duration-300 shadow-xl hover:shadow-gold-400/50 hover:scale-105"
+                    className="w-full mt-4 sm:mt-6 px-4 sm:px-6 py-3.5 sm:py-4 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-black font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:from-gold-500 hover:via-gold-600 hover:to-gold-700 transition-all duration-300 shadow-xl hover:shadow-gold-400/50 active:scale-95 hover:scale-105 touch-manipulation"
                   >
                     Inquire About This Plot
                   </button>
                 </div>
               ) : (
-                <div className="text-center py-16 text-gray-400">
-                  <div className="text-5xl mb-4">📍</div>
-                  <p className="font-medium">Select a plot to view details</p>
+                <div className="text-center py-12 sm:py-16 text-gray-400">
+                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">📍</div>
+                  <p className="font-medium text-sm sm:text-base">Tap a plot to view details</p>
                 </div>
               )}
             </div>
