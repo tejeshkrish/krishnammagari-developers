@@ -20,7 +20,7 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
   }, []);
 
   const scale = 1.35;
-  const roadWidth = 28;
+  const roadWidth = 35;
   const startX = 25;
   const startY = 25;
   const parkWidth = 22;
