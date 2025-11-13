@@ -192,8 +192,8 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
                           y={plot.y}
                           width={plot.w}
                           height={plot.h}
-                          fill={isSold ? '#ef4444' : (isSelected ? '#fbbf24' : '#f3f4f6')}
-                          stroke={isSold ? '#dc2626' : (isSelected ? '#f59e0b' : '#9ca3af')}
+                          fill={isSold ? '#9ca3af' : (isSelected ? '#fbbf24' : '#f3f4f6')}
+                          stroke={isSold ? '#6b7280' : (isSelected ? '#f59e0b' : '#9ca3af')}
                           strokeWidth="2"
                           style={{ transition: 'all 0.3s ease' }}
                         />
@@ -212,13 +212,13 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
                         </rect>
                         {isSold && (
                           <>
-                            <line x1={plot.x} y1={plot.y} x2={plot.x + plot.w} y2={plot.y + plot.h} stroke="#7f1d1d" strokeWidth="3" />
-                            <line x1={plot.x + plot.w} y1={plot.y} x2={plot.x} y2={plot.y + plot.h} stroke="#7f1d1d" strokeWidth="3" />
-                            <text x={plot.x + plot.w/2} y={plot.y + plot.h/2} textAnchor="middle" fontSize="10" fontWeight="bold" fill="white">SOLD</text>
+                            <line x1={plot.x} y1={plot.y} x2={plot.x + plot.w} y2={plot.y + plot.h} stroke="#374151" strokeWidth="3" />
+                            <line x1={plot.x + plot.w} y1={plot.y} x2={plot.x} y2={plot.y + plot.h} stroke="#374151" strokeWidth="3" />
+                            <text x={plot.x + plot.w/2} y={plot.y + plot.h/2} textAnchor="middle" fontSize="10" fontWeight="bold" fill="#1f2937">SOLD OUT</text>
                           </>
                         )}
-                        <circle cx={plot.x + 20} cy={plot.y + plot.h/2} r="12" fill="white" stroke={isSold ? '#dc2626' : (isSelected ? '#f59e0b' : '#000')} strokeWidth={isSelected || isSold ? '2' : '1'} style={{ transition: 'all 0.3s ease' }}/>
-                        <text x={plot.x + 20} y={plot.y + plot.h/2 + 4} textAnchor="middle" fontSize="11" fontWeight="bold" fill={isSold ? '#dc2626' : (isSelected ? '#000' : '#1f2937')}>{plot.id}</text>
+                        <circle cx={plot.x + 20} cy={plot.y + plot.h/2} r="12" fill="white" stroke={isSold ? '#6b7280' : (isSelected ? '#f59e0b' : '#000')} strokeWidth={isSelected || isSold ? '2' : '1'} style={{ transition: 'all 0.3s ease' }}/>
+                        <text x={plot.x + 20} y={plot.y + plot.h/2 + 4} textAnchor="middle" fontSize="11" fontWeight="bold" fill={isSold ? '#6b7280' : (isSelected ? '#000' : '#1f2937')}>{plot.id}</text>
                         <text x={plot.x + 40} y={plot.y + 15} fontSize="10" fill="#dc2626" fontWeight="600">{plot.width}</text>
                         {plot.depth && <text x={plot.x + 40} y={plot.y + 28} fontSize="10" fill="#dc2626" fontWeight="600">{plot.depth}</text>}
                       </g>
@@ -262,8 +262,8 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
                   <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-3 md:p-4">
                     <p className="text-gray-400 text-xs md:text-sm mb-2">Status</p>
                     {plotData.find(p => p.id === selectedPlot)?.sold ? (
-                      <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-red-500/20 border border-red-500 text-red-400 text-xs md:text-sm font-semibold rounded-full">
-                        ✗ Sold
+                      <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-gray-500/20 border border-gray-500 text-gray-400 text-xs md:text-sm font-semibold rounded-full">
+                        ✗ Sold Out
                       </span>
                     ) : (
                       <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-green-500/20 border border-green-500 text-green-400 text-xs md:text-sm font-semibold rounded-full animate-pulse">
