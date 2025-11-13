@@ -25,8 +25,8 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
     { id: 4, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 5, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 6, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
-    { id: 7, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
-    { id: 8, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
+    { id: 7, width: "50'", depth: "30'", status: 'sold', sqFt: 1500 },
+    { id: 8, width: "50'", depth: "30'", status: 'sold', sqFt: 1500 },
     { id: 9, width: "57'-6\"", depth: "30'", status: 'available', sqFt: 1725 },
     { id: 10, width: "57'-6\"", depth: "30'", status: 'available', sqFt: 1725 },
     { id: 11, width: "57'-6\"", depth: "30'", status: 'available', sqFt: 1725 },
@@ -58,14 +58,22 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
     const info = getPlotInfo(id);
     if (!info) return null;
 
+    const isSold = info.status === 'sold';
+
     return (
       <div
-        onClick={() => setSelectedPlot(id)}
-        className={`${getStatusColor(info.status)} border sm:border-2 p-2 sm:p-4 cursor-pointer active:scale-95 hover:scale-105 hover:shadow-xl transition-all duration-200 flex flex-col items-center justify-center relative group touch-manipulation`}
+        onClick={() => !isSold && setSelectedPlot(id)}
+        className={`${getStatusColor(info.status)} border sm:border-2 p-2 sm:p-4 ${isSold ? 'cursor-not-allowed' : 'cursor-pointer active:scale-95 hover:scale-105 hover:shadow-xl'} transition-all duration-200 flex flex-col items-center justify-center relative group touch-manipulation`}
       >
         <div className="text-white font-display font-bold text-sm sm:text-xl lg:text-2xl">#{id}</div>
         <div className="text-white/90 text-[8px] sm:text-xs lg:text-sm mt-0.5 sm:mt-1 font-medium leading-tight">{info.width} × {info.depth}</div>
-        <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity"></div>
+        {isSold && (
+          <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 bg-gradient-to-br from-gray-800/60 to-gray-900/60"></div>
+            <span className="relative text-white font-bold text-xs sm:text-sm lg:text-base tracking-wider">SOLD OUT</span>
+          </div>
+        )}
+        {!isSold && <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity"></div>}
       </div>
     );
   };
