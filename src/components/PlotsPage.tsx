@@ -142,8 +142,8 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
 
           <div className="flex flex-col lg:flex-row gap-2 md:gap-8">
             <div className="flex-1 bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur rounded-lg md:rounded-2xl p-2 md:p-6 border border-yellow-400/20 shadow-2xl hover:shadow-yellow-400/10 transition-all duration-500">
-              <div className="relative w-full" style={{ height: '400px', overflowY: 'auto', overflowX: 'hidden' }}>
-                <div className="w-full" style={{ minHeight: '600px' }}>
+              <div className="relative w-full md:h-[800px]" style={{ height: '30vh', overflowY: 'auto', overflowX: 'hidden' }}>
+                <div className="w-full md:min-h-[1200px]" style={{ minHeight: '400px' }}>
                 <div className="absolute -top-4 -left-4 w-12 h-12 md:w-24 md:h-24 opacity-20">
                   <Trees className="w-full h-full text-green-500 animate-pulse" style={{ animationDuration: '3s' }} />
                 </div>
