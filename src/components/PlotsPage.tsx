@@ -114,47 +114,47 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
         </div>
       </header>
 
-      <div className="relative z-10 min-h-screen p-8 pt-24">
+      <div className="relative z-10 min-h-screen p-2 md:p-8 pt-16 md:pt-24">
         <button
           onClick={onBack}
-          className={`fixed top-8 left-8 z-40 flex items-center gap-2 px-4 py-2 bg-yellow-400 hover:bg-yellow-500 text-black font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-xl hover:shadow-yellow-400/20 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
+          className={`fixed top-4 left-4 md:top-8 md:left-8 z-40 flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1.5 md:py-2 bg-yellow-400 hover:bg-yellow-500 text-black text-xs md:text-base font-semibold rounded-lg transition-all hover:scale-105 hover:shadow-xl hover:shadow-yellow-400/20 ${isScrolled ? 'opacity-0 pointer-events-none' : 'opacity-100'}`}
         >
-          <ArrowLeft className="w-5 h-5" />
+          <ArrowLeft className="w-3 h-3 md:w-5 md:h-5" />
           Back
         </button>
 
         <div className="max-w-7xl mx-auto">
           <div className="mb-8 animate-fade-in">
-            <h1 className="text-5xl font-bold text-white mb-3 bg-gradient-to-r from-white to-yellow-400 bg-clip-text text-transparent">Premium Plot Layout</h1>
-            <p className="text-gray-400 text-lg">25 Exclusive Plots in Prime Location - Click to explore details</p>
+            <h1 className="text-2xl md:text-5xl font-bold text-white mb-2 md:mb-3 bg-gradient-to-r from-white to-yellow-400 bg-clip-text text-transparent">Premium Plot Layout</h1>
+            <p className="text-gray-400 text-xs md:text-lg">25 Exclusive Plots in Prime Location - Click to explore details</p>
 
-            <div className="flex gap-6 mt-6">
-              <div className="flex items-center gap-2 px-4 py-2 bg-green-500/10 border border-green-500/30 rounded-lg">
-                <Trees className="w-5 h-5 text-green-400" />
-                <span className="text-sm text-green-400">Eco-Friendly Layout</span>
+            <div className="flex gap-2 md:gap-6 mt-3 md:mt-6">
+              <div className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1 md:py-2 bg-green-500/10 border border-green-500/30 rounded-lg">
+                <Trees className="w-3 h-3 md:w-5 md:h-5 text-green-400" />
+                <span className="text-[10px] md:text-sm text-green-400">Eco-Friendly Layout</span>
               </div>
-              <div className="flex items-center gap-2 px-4 py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
-                <MapPin className="w-5 h-5 text-yellow-400" />
-                <span className="text-sm text-yellow-400">Near NH-4</span>
+              <div className="flex items-center gap-1 md:gap-2 px-2 md:px-4 py-1 md:py-2 bg-yellow-500/10 border border-yellow-500/30 rounded-lg">
+                <MapPin className="w-3 h-3 md:w-5 md:h-5 text-yellow-400" />
+                <span className="text-[10px] md:text-sm text-yellow-400">Near NH-4</span>
               </div>
             </div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8">
-            <div className="flex-1 bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur rounded-2xl p-6 border border-yellow-400/20 shadow-2xl hover:shadow-yellow-400/10 transition-all duration-500">
-              <div className="relative w-full" style={{ height: '800px', overflowY: 'auto', overflowX: 'hidden' }}>
-                <div className="w-full" style={{ minHeight: '1200px' }}>
-                <div className="absolute -top-4 -left-4 w-24 h-24 opacity-20">
+          <div className="flex flex-col lg:flex-row gap-2 md:gap-8">
+            <div className="flex-1 bg-gradient-to-br from-slate-900/90 via-slate-800/90 to-slate-900/90 backdrop-blur rounded-lg md:rounded-2xl p-2 md:p-6 border border-yellow-400/20 shadow-2xl hover:shadow-yellow-400/10 transition-all duration-500">
+              <div className="relative w-full" style={{ height: '400px', overflowY: 'auto', overflowX: 'hidden' }}>
+                <div className="w-full" style={{ minHeight: '600px' }}>
+                <div className="absolute -top-4 -left-4 w-12 h-12 md:w-24 md:h-24 opacity-20">
                   <Trees className="w-full h-full text-green-500 animate-pulse" style={{ animationDuration: '3s' }} />
                 </div>
-                <div className="absolute -top-4 -right-4 w-20 h-20 opacity-20">
+                <div className="absolute -top-4 -right-4 w-10 h-10 md:w-20 md:h-20 opacity-20">
                   <Trees className="w-full h-full text-green-500 animate-pulse" style={{ animationDuration: '4s' }} />
                 </div>
-                <div className="absolute -bottom-4 left-1/4 w-16 h-16 opacity-20">
+                <div className="absolute -bottom-4 left-1/4 w-8 h-8 md:w-16 md:h-16 opacity-20">
                   <Sun className="w-full h-full text-yellow-500 animate-pulse" style={{ animationDuration: '5s' }} />
                 </div>
 
-              <div className="bg-gradient-to-br from-white to-gray-50 rounded-xl p-4 shadow-inner relative">
+              <div className="bg-gradient-to-br from-white to-gray-50 rounded-lg md:rounded-xl p-2 md:p-4 shadow-inner relative">
                 <div className="absolute top-4 left-4 text-green-600 opacity-10 text-6xl">🌳</div>
                 <div className="absolute bottom-4 right-4 text-green-600 opacity-10 text-6xl">🌳</div>
                 <div className="absolute top-1/3 right-8 text-green-500 opacity-10 text-5xl">🌿</div>
