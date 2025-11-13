@@ -23,7 +23,7 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
   const roadWidth = 56.875;
   const startX = 25;
   const startY = 25;
-  const parkWidth = 22;
+  const parkWidth = 56.875;
 
   const leftColWidth = 57.5 * scale;
   const vRoad1X = startX + leftColWidth;
@@ -230,11 +230,13 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
                   <text x={startX + 75} y={nhRoadY + 24} fontSize="8" fill="#000" fontWeight="bold">NH-4 HIGHWAY</text>
                   <text x={startX + totalWidth - 8} y={nhRoadY + 24} fontSize="6.5" fill="#000" fontWeight="bold" textAnchor="end">TIRUPATHI &gt;&gt;</text>
 
-                  <g transform="translate(240, 85)">
-                    <line x1="0" y1="-15" x2="0" y2="15" stroke="#dc2626" strokeWidth="1.5"/>
-                    <line x1="-15" y1="0" x2="15" y2="0" stroke="#dc2626" strokeWidth="1.5"/>
-                    <line x1="0" y1="-15" x2="0" y2="-20" stroke="#dc2626" strokeWidth="2"/>
-                    <text x="0" y="-23" fontSize="7" fill="#dc2626" textAnchor="middle" fontWeight="bold">N</text>
+                  <g transform={`translate(${startX + totalWidth - 30}, ${startY + 20})`}>
+                    <line x1="0" y1="-12" x2="0" y2="12" stroke="#dc2626" strokeWidth="1.5"/>
+                    <line x1="-12" y1="0" x2="12" y2="0" stroke="#dc2626" strokeWidth="1.5"/>
+                    <line x1="0" y1="-12" x2="0" y2="-18" stroke="#dc2626" strokeWidth="2"/>
+                    <line x1="-1.5" y1="-15" x2="0" y2="-18" stroke="#dc2626" strokeWidth="2"/>
+                    <line x1="1.5" y1="-15" x2="0" y2="-18" stroke="#dc2626" strokeWidth="2"/>
+                    <text x="0" y="-22" fontSize="8" fill="#dc2626" textAnchor="middle" fontWeight="bold">N</text>
                   </g>
                 </svg>
               </div>
