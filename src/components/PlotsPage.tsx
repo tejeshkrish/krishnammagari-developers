@@ -231,12 +231,10 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
                   <text x={startX + totalWidth - 8} y={nhRoadY + 24} fontSize="6.5" fill="#000" fontWeight="bold" textAnchor="end">TIRUPATHI &gt;&gt;</text>
 
                   <g transform="translate(240, 85)">
-                    <circle cx="0" cy="0" r="16" fill="none" stroke="#dc2626" strokeWidth="1.5"/>
-                    <line x1="0" y1="-12" x2="0" y2="-20" stroke="#dc2626" strokeWidth="2"/>
-                    <text x="0" y="-23" fontSize="6.5" fill="#dc2626" textAnchor="middle" fontWeight="bold">N</text>
-                    <text x="18" y="4" fontSize="5.5" fill="#dc2626" textAnchor="middle">E</text>
-                    <text x="-18" y="4" fontSize="5.5" fill="#dc2626" textAnchor="middle">W</text>
-                    <text x="0" y="26" fontSize="5.5" fill="#dc2626" textAnchor="middle">S</text>
+                    <line x1="0" y1="-15" x2="0" y2="15" stroke="#dc2626" strokeWidth="1.5"/>
+                    <line x1="-15" y1="0" x2="15" y2="0" stroke="#dc2626" strokeWidth="1.5"/>
+                    <line x1="0" y1="-15" x2="0" y2="-20" stroke="#dc2626" strokeWidth="2"/>
+                    <text x="0" y="-23" fontSize="7" fill="#dc2626" textAnchor="middle" fontWeight="bold">N</text>
                   </g>
                 </svg>
               </div>
