@@ -47,7 +47,7 @@ export default function LandingPage({ onViewLayout }: LandingPageProps) {
 
           <p className="text-sm sm:text-base lg:text-lg text-gray-300 mb-8 sm:mb-12 leading-relaxed max-w-2xl mx-auto font-light animate-fade-in px-4" style={{ animationDelay: '0.4s' }}>
             Exclusive residential plots located between the Bangalore–Tirupati Highway, offering prime locations and exceptional investment potential. 
-            <br>  
+            <br/>  
              Connect with us today to explore the available opportunities.
          
            
