@@ -244,66 +244,66 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
               </div>
             </div>
 
-            <div className="w-full lg:w-80 lg:sticky lg:top-24 lg:self-start bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur rounded-2xl p-4 md:p-6 border border-yellow-400/20 shadow-2xl hover:shadow-yellow-400/10 transition-all duration-500 overflow-y-auto max-h-[60vh] md:max-h-[calc(100vh-200px)]">
-              <h2 className="text-xl md:text-2xl font-bold text-white mb-4 md:mb-6 bg-gradient-to-r from-white to-yellow-400 bg-clip-text text-transparent">Plot Details</h2>
+            <div className="w-full lg:w-80 lg:sticky lg:top-24 lg:self-start bg-gradient-to-br from-slate-900/90 to-slate-800/90 backdrop-blur rounded-2xl p-2 md:p-6 border border-yellow-400/20 shadow-2xl hover:shadow-yellow-400/10 transition-all duration-500 overflow-y-auto max-h-[30vh] md:max-h-[calc(100vh-200px)]">
+              <h2 className="text-base md:text-2xl font-bold text-white mb-2 md:mb-6 bg-gradient-to-r from-white to-yellow-400 bg-clip-text text-transparent">Plot Details</h2>
 
               {selectedPlot ? (
-                <div className="space-y-3 md:space-y-4 animate-fade-in">
-                  <div className="bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border border-yellow-400/30 rounded-xl p-3 md:p-4">
-                    <p className="text-gray-400 text-xs md:text-sm mb-1">Plot Number</p>
-                    <p className="text-3xl md:text-4xl font-bold text-yellow-400">#{selectedPlot}</p>
+                <div className="space-y-1.5 md:space-y-4 animate-fade-in">
+                  <div className="bg-gradient-to-br from-yellow-400/10 to-yellow-600/10 border border-yellow-400/30 rounded-xl p-2 md:p-4">
+                    <p className="text-gray-400 text-[10px] md:text-sm mb-0.5">Plot Number</p>
+                    <p className="text-xl md:text-4xl font-bold text-yellow-400">#{selectedPlot}</p>
                   </div>
-                  <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-3 md:p-4">
-                    <p className="text-gray-400 text-xs md:text-sm mb-1">Dimensions</p>
-                    <p className="text-xl md:text-2xl text-white font-semibold">
+                  <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-2 md:p-4">
+                    <p className="text-gray-400 text-[10px] md:text-sm mb-0.5">Dimensions</p>
+                    <p className="text-sm md:text-2xl text-white font-semibold">
                       {plotData.find(p => p.id === selectedPlot)?.width} × {plotData.find(p => p.id === selectedPlot)?.depth}
                     </p>
                   </div>
-                  <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-3 md:p-4">
-                    <p className="text-gray-400 text-xs md:text-sm mb-2">Status</p>
+                  <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-2 md:p-4">
+                    <p className="text-gray-400 text-[10px] md:text-sm mb-1">Status</p>
                     {plotData.find(p => p.id === selectedPlot)?.sold ? (
-                      <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-gray-500/20 border border-gray-500 text-gray-400 text-xs md:text-sm font-semibold rounded-full">
+                      <span className="inline-block px-2 md:px-4 py-1 md:py-2 bg-gray-500/20 border border-gray-500 text-gray-400 text-[10px] md:text-sm font-semibold rounded-full">
                         ✗ Sold Out
                       </span>
                     ) : (
-                      <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-green-500/20 border border-green-500 text-green-400 text-xs md:text-sm font-semibold rounded-full animate-pulse">
+                      <span className="inline-block px-2 md:px-4 py-1 md:py-2 bg-green-500/20 border border-green-500 text-green-400 text-[10px] md:text-sm font-semibold rounded-full animate-pulse">
                         ✓ Available Now
                       </span>
                     )}
                   </div>
-                  <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-3 md:p-4">
-                    <p className="text-gray-400 text-xs md:text-sm mb-2 flex items-center gap-2">
-                      <MapPin className="w-3 h-3 md:w-4 md:h-4" />
+                  <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-2 md:p-4">
+                    <p className="text-gray-400 text-[10px] md:text-sm mb-1 flex items-center gap-1">
+                      <MapPin className="w-2.5 h-2.5 md:w-4 md:h-4" />
                       Location
                     </p>
-                    <p className="text-white text-sm md:text-base font-medium mb-1">Prime location near NH-4</p>
-                    <p className="text-xs md:text-sm text-gray-400">Between Bangalore & Tirupathi</p>
+                    <p className="text-white text-[11px] md:text-base font-medium mb-0.5">Prime location near NH-4</p>
+                    <p className="text-[10px] md:text-sm text-gray-400">Between Bangalore & Tirupathi</p>
                   </div>
 
-                  <div className="bg-gradient-to-br from-green-500/10 to-blue-500/10 border border-green-500/30 rounded-xl p-3 md:p-4">
-                    <p className="text-gray-300 text-xs md:text-sm mb-2 font-semibold">✨ Amenities</p>
-                    <ul className="text-xs md:text-sm text-gray-400 space-y-1">
-                      <li className="flex items-center gap-2">🌳 Green Spaces</li>
-                      <li className="flex items-center gap-2">⚡ Electricity Ready</li>
-                      <li className="flex items-center gap-2">🛣️ Wide Roads</li>
+                  <div className="bg-gradient-to-br from-green-500/10 to-blue-500/10 border border-green-500/30 rounded-xl p-2 md:p-4">
+                    <p className="text-gray-300 text-[10px] md:text-sm mb-1 font-semibold">✨ Amenities</p>
+                    <ul className="text-[10px] md:text-sm text-gray-400 space-y-0.5">
+                      <li className="flex items-center gap-1">🌳 Green Spaces</li>
+                      <li className="flex items-center gap-1">⚡ Electricity Ready</li>
+                      <li className="flex items-center gap-1">🛣️ Wide Roads</li>
                     </ul>
                   </div>
                   {!plotData.find(p => p.id === selectedPlot)?.sold && (
                     <button
                       onClick={() => setShowContactModal(true)}
-                      className="w-full mt-4 md:mt-6 px-3 md:px-4 py-3 md:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black text-sm md:text-base font-bold rounded-xl transition-all hover:shadow-2xl hover:shadow-yellow-400/40 hover:scale-105 transform duration-300"
+                      className="w-full mt-2 md:mt-6 px-2 md:px-4 py-2 md:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black text-[11px] md:text-base font-bold rounded-xl transition-all hover:shadow-2xl hover:shadow-yellow-400/40 hover:scale-105 transform duration-300"
                     >
                       Inquire About Plot #{selectedPlot}
                     </button>
                   )}
                 </div>
               ) : (
-                <div className="text-center py-8 md:py-16">
-                  <div className="mb-4 md:mb-6 mx-auto w-16 h-16 md:w-24 md:h-24 bg-yellow-400/10 rounded-full flex items-center justify-center">
-                    <MapPin className="w-8 h-8 md:w-12 md:h-12 text-yellow-400 animate-bounce" />
+                <div className="text-center py-4 md:py-16">
+                  <div className="mb-2 md:mb-6 mx-auto w-8 h-8 md:w-24 md:h-24 bg-yellow-400/10 rounded-full flex items-center justify-center">
+                    <MapPin className="w-4 h-4 md:w-12 md:h-12 text-yellow-400 animate-bounce" />
                   </div>
-                  <p className="text-gray-300 text-base md:text-lg font-medium mb-2">Select a Plot</p>
-                  <p className="text-gray-500 text-xs md:text-sm">Click on any plot in the layout to view detailed information</p>
+                  <p className="text-gray-300 text-xs md:text-lg font-medium mb-1">Select a Plot</p>
+                  <p className="text-gray-500 text-[10px] md:text-sm">Click on any plot in the layout to view detailed information</p>
                 </div>
               )}
             </div>
