@@ -59,34 +59,34 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
   const totalHeight = nhRoadY + 40 - startY;
 
   const plotData = [
-    { id: 1, width: "50'", depth: "34'", x: col2X, y: row1Y, w: col2Width, h: plot1H },
-    { id: 2, width: "50'", depth: "30'", x: col2X, y: row2Y, w: col2Width, h: plotH },
-    { id: 3, width: "50'", depth: "30'", x: col2X, y: row3Y, w: col2Width, h: plotH },
-    { id: 4, width: "50'", depth: "30'", x: col2X, y: row4Y, w: col2Width, h: plotH },
-    { id: 5, width: "50'", depth: "30'", x: col2X, y: row6Y, w: col2Width, h: plotH },
-    { id: 6, width: "50'", depth: "30'", x: col2X, y: row7Y, w: col2Width, h: plotH },
-    { id: 7, width: "50'", depth: "30'", x: col2X, y: row8Y, w: col2Width, h: plotH },
-    { id: 8, width: "50'", depth: "30'", x: col2X, y: row9Y, w: col2Width, h: plotH },
+    { id: 1, width: "50'", depth: "34'", x: col2X, y: row1Y, w: col2Width, h: plot1H, sold: false },
+    { id: 2, width: "50'", depth: "30'", x: col2X, y: row2Y, w: col2Width, h: plotH, sold: false },
+    { id: 3, width: "50'", depth: "30'", x: col2X, y: row3Y, w: col2Width, h: plotH, sold: false },
+    { id: 4, width: "50'", depth: "30'", x: col2X, y: row4Y, w: col2Width, h: plotH, sold: false },
+    { id: 5, width: "50'", depth: "30'", x: col2X, y: row6Y, w: col2Width, h: plotH, sold: false },
+    { id: 6, width: "50'", depth: "30'", x: col2X, y: row7Y, w: col2Width, h: plotH, sold: false },
+    { id: 7, width: "50'", depth: "30'", x: col2X, y: row8Y, w: col2Width, h: plotH, sold: true },
+    { id: 8, width: "50'", depth: "30'", x: col2X, y: row9Y, w: col2Width, h: plotH, sold: true },
 
-    { id: 17, width: "44'-6\"", depth: "30'", x: vRoad3X, y: row1Y, w: 44.5 * scale, h: plotH },
-    { id: 16, width: "46'-9\"", depth: "30'", x: vRoad3X, y: row2Y, w: 46.75 * scale, h: plotH },
-    { id: 15, width: "49'-6\"", depth: "30'", x: vRoad3X, y: row3Y, w: 49.5 * scale, h: plotH },
-    { id: 14, width: "53'-3\"", depth: "30'", x: vRoad3X, y: row4Y, w: 53.25 * scale, h: plotH },
-    { id: 13, width: "57'", depth: "30'", x: vRoad3X, y: row6Y, w: 57 * scale, h: plotH },
-    { id: 12, width: "57'-6\"", depth: "30'", x: vRoad3X, y: row7Y, w: leftColWidth - roadWidth, h: plotH },
-    { id: 11, width: "57'-6\"", depth: "30'", x: vRoad3X, y: row8Y, w: leftColWidth - roadWidth, h: plotH },
-    { id: 10, width: "57'-6\"", depth: "30'", x: vRoad3X, y: row9Y, w: leftColWidth - roadWidth, h: plotH },
-    { id: 9, width: "57'-6\"", depth: "30'", x: vRoad3X + parkWidth, y: row5Y, w: leftColWidth - roadWidth - parkWidth, h: plotH },
+    { id: 17, width: "44'-6\"", depth: "30'", x: vRoad3X, y: row1Y, w: 44.5 * scale, h: plotH, sold: false },
+    { id: 16, width: "46'-9\"", depth: "30'", x: vRoad3X, y: row2Y, w: 46.75 * scale, h: plotH, sold: false },
+    { id: 15, width: "49'-6\"", depth: "30'", x: vRoad3X, y: row3Y, w: 49.5 * scale, h: plotH, sold: false },
+    { id: 14, width: "53'-3\"", depth: "30'", x: vRoad3X, y: row4Y, w: 53.25 * scale, h: plotH, sold: false },
+    { id: 13, width: "57'", depth: "30'", x: vRoad3X, y: row6Y, w: 57 * scale, h: plotH, sold: false },
+    { id: 12, width: "57'-6\"", depth: "30'", x: vRoad3X, y: row7Y, w: leftColWidth - roadWidth, h: plotH, sold: false },
+    { id: 11, width: "57'-6\"", depth: "30'", x: vRoad3X, y: row8Y, w: leftColWidth - roadWidth, h: plotH, sold: false },
+    { id: 10, width: "57'-6\"", depth: "30'", x: vRoad3X, y: row9Y, w: leftColWidth - roadWidth, h: plotH, sold: false },
+    { id: 9, width: "57'-6\"", depth: "30'", x: vRoad3X + parkWidth, y: row5Y, w: leftColWidth - roadWidth - parkWidth, h: plotH, sold: false },
 
-    { id: 21, width: "42'", depth: "40'", x: vRoad3X, y: row10Y, w: 42 * scale, h: 40 * scale },
-    { id: 20, width: "40'-6\"", depth: "40'", x: vRoad3X + 42 * scale, y: row10Y, w: 40.5 * scale, h: 40 * scale },
-    { id: 19, width: "35'", depth: "40'", x: vRoad3X + 82.5 * scale, y: row10Y, w: 35 * scale, h: 40 * scale },
-    { id: 18, width: "40'", depth: "40'", x: vRoad3X + 117.5 * scale, y: row10Y, w: 40 * scale, h: 40 * scale },
+    { id: 21, width: "42'", depth: "40'", x: vRoad3X, y: row10Y, w: 42 * scale, h: 40 * scale, sold: false },
+    { id: 20, width: "40'-6\"", depth: "40'", x: vRoad3X + 42 * scale, y: row10Y, w: 40.5 * scale, h: 40 * scale, sold: false },
+    { id: 19, width: "35'", depth: "40'", x: vRoad3X + 82.5 * scale, y: row10Y, w: 35 * scale, h: 40 * scale, sold: false },
+    { id: 18, width: "40'", depth: "40'", x: vRoad3X + 117.5 * scale, y: row10Y, w: 40 * scale, h: 40 * scale, sold: false },
 
-    { id: 25, width: "39'-4\"", depth: "100'", x: vRoad3X, y: row11Y, w: 39.33 * scale, h: 100 * scale },
-    { id: 24, width: "39'-4\"", depth: "100'", x: vRoad3X + 39.33 * scale, y: row11Y, w: 39.33 * scale, h: 100 * scale },
-    { id: 23, width: "39'-4\"", depth: "100'", x: vRoad3X + 78.66 * scale, y: row11Y, w: 39.33 * scale, h: 100 * scale },
-    { id: 22, width: "39'-4\"", depth: "100'", x: vRoad3X + 117.99 * scale, y: row11Y, w: 39.33 * scale, h: 100 * scale },
+    { id: 25, width: "39'-4\"", depth: "100'", x: vRoad3X, y: row11Y, w: 39.33 * scale, h: 100 * scale, sold: false },
+    { id: 24, width: "39'-4\"", depth: "100'", x: vRoad3X + 39.33 * scale, y: row11Y, w: 39.33 * scale, h: 100 * scale, sold: false },
+    { id: 23, width: "39'-4\"", depth: "100'", x: vRoad3X + 78.66 * scale, y: row11Y, w: 39.33 * scale, h: 100 * scale, sold: false },
+    { id: 22, width: "39'-4\"", depth: "100'", x: vRoad3X + 117.99 * scale, y: row11Y, w: 39.33 * scale, h: 100 * scale, sold: false },
   ];
 
   return (
@@ -184,15 +184,16 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
 
                   {plotData.map((plot) => {
                     const isSelected = selectedPlot === plot.id;
+                    const isSold = plot.sold;
                     return (
-                      <g key={plot.id} onClick={() => setSelectedPlot(isSelected ? null : plot.id)} style={{ cursor: 'pointer' }} className="plot-item">
+                      <g key={plot.id} onClick={() => !isSold && setSelectedPlot(isSelected ? null : plot.id)} style={{ cursor: isSold ? 'not-allowed' : 'pointer' }} className="plot-item">
                         <rect
                           x={plot.x}
                           y={plot.y}
                           width={plot.w}
                           height={plot.h}
-                          fill={isSelected ? '#fbbf24' : '#f3f4f6'}
-                          stroke={isSelected ? '#f59e0b' : '#9ca3af'}
+                          fill={isSold ? '#ef4444' : (isSelected ? '#fbbf24' : '#f3f4f6')}
+                          stroke={isSold ? '#dc2626' : (isSelected ? '#f59e0b' : '#9ca3af')}
                           strokeWidth="2"
                           style={{ transition: 'all 0.3s ease' }}
                         />
@@ -205,12 +206,19 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
                           opacity={isSelected ? '0.3' : '0'}
                           style={{ transition: 'all 0.3s ease' }}
                         >
-                          {isSelected && (
+                          {isSelected && !isSold && (
                             <animate attributeName="opacity" values="0.3;0.6;0.3" dur="2s" repeatCount="indefinite" />
                           )}
                         </rect>
-                        <circle cx={plot.x + 20} cy={plot.y + plot.h/2} r="12" fill="white" stroke={isSelected ? '#f59e0b' : '#000'} strokeWidth={isSelected ? '2' : '1'} style={{ transition: 'all 0.3s ease' }}/>
-                        <text x={plot.x + 20} y={plot.y + plot.h/2 + 4} textAnchor="middle" fontSize="11" fontWeight="bold" fill={isSelected ? '#000' : '#1f2937'}>{plot.id}</text>
+                        {isSold && (
+                          <>
+                            <line x1={plot.x} y1={plot.y} x2={plot.x + plot.w} y2={plot.y + plot.h} stroke="#7f1d1d" strokeWidth="3" />
+                            <line x1={plot.x + plot.w} y1={plot.y} x2={plot.x} y2={plot.y + plot.h} stroke="#7f1d1d" strokeWidth="3" />
+                            <text x={plot.x + plot.w/2} y={plot.y + plot.h/2} textAnchor="middle" fontSize="10" fontWeight="bold" fill="white">SOLD</text>
+                          </>
+                        )}
+                        <circle cx={plot.x + 20} cy={plot.y + plot.h/2} r="12" fill="white" stroke={isSold ? '#dc2626' : (isSelected ? '#f59e0b' : '#000')} strokeWidth={isSelected || isSold ? '2' : '1'} style={{ transition: 'all 0.3s ease' }}/>
+                        <text x={plot.x + 20} y={plot.y + plot.h/2 + 4} textAnchor="middle" fontSize="11" fontWeight="bold" fill={isSold ? '#dc2626' : (isSelected ? '#000' : '#1f2937')}>{plot.id}</text>
                         <text x={plot.x + 40} y={plot.y + 15} fontSize="10" fill="#dc2626" fontWeight="600">{plot.width}</text>
                         {plot.depth && <text x={plot.x + 40} y={plot.y + 28} fontSize="10" fill="#dc2626" fontWeight="600">{plot.depth}</text>}
                       </g>
@@ -253,9 +261,15 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
                   </div>
                   <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-3 md:p-4">
                     <p className="text-gray-400 text-xs md:text-sm mb-2">Status</p>
-                    <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-green-500/20 border border-green-500 text-green-400 text-xs md:text-sm font-semibold rounded-full animate-pulse">
-                      ✓ Available Now
-                    </span>
+                    {plotData.find(p => p.id === selectedPlot)?.sold ? (
+                      <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-red-500/20 border border-red-500 text-red-400 text-xs md:text-sm font-semibold rounded-full">
+                        ✗ Sold
+                      </span>
+                    ) : (
+                      <span className="inline-block px-3 md:px-4 py-1.5 md:py-2 bg-green-500/20 border border-green-500 text-green-400 text-xs md:text-sm font-semibold rounded-full animate-pulse">
+                        ✓ Available Now
+                      </span>
+                    )}
                   </div>
                   <div className="bg-slate-800/50 border border-slate-700 rounded-xl p-3 md:p-4">
                     <p className="text-gray-400 text-xs md:text-sm mb-2 flex items-center gap-2">
@@ -274,12 +288,14 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
                       <li className="flex items-center gap-2">🛣️ Wide Roads</li>
                     </ul>
                   </div>
-                  <button
-                    onClick={() => setShowContactModal(true)}
-                    className="w-full mt-4 md:mt-6 px-3 md:px-4 py-3 md:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black text-sm md:text-base font-bold rounded-xl transition-all hover:shadow-2xl hover:shadow-yellow-400/40 hover:scale-105 transform duration-300"
-                  >
-                    Inquire About Plot #{selectedPlot}
-                  </button>
+                  {!plotData.find(p => p.id === selectedPlot)?.sold && (
+                    <button
+                      onClick={() => setShowContactModal(true)}
+                      className="w-full mt-4 md:mt-6 px-3 md:px-4 py-3 md:py-4 bg-gradient-to-r from-yellow-400 to-yellow-500 hover:from-yellow-500 hover:to-yellow-600 text-black text-sm md:text-base font-bold rounded-xl transition-all hover:shadow-2xl hover:shadow-yellow-400/40 hover:scale-105 transform duration-300"
+                    >
+                      Inquire About Plot #{selectedPlot}
+                    </button>
+                  )}
                 </div>
               ) : (
                 <div className="text-center py-8 md:py-16">
