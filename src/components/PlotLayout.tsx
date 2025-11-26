@@ -24,7 +24,17 @@ export default function PlotLayout({ onBack }: PlotLayoutProps) {
       .order('plot_number');
 
     if (!error && data) {
-      setPlots(data);
+      // Override statuses as per requirement
+      const updatedData = data.map(plot => {
+        if (plot.plot_number === 1 || plot.plot_number === 2) {
+          return { ...plot, status: 'sold' as const };
+        }
+        if (plot.plot_number === 7 || plot.plot_number === 8) {
+          return { ...plot, status: 'available' as const };
+        }
+        return plot;
+      });
+      setPlots(updatedData);
     }
   };
 

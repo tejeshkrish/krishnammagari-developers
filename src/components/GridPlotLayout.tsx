@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, Navigation } from 'lucide-react';
+import { ArrowLeft } from 'lucide-react';
 import ContactModal from './ContactModal';
 
 interface GridPlotLayoutProps {
@@ -19,14 +19,14 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
   const [showContactModal, setShowContactModal] = useState(false);
 
   const plotsInfo: PlotInfo[] = [
-    { id: 1, width: "50'", depth: "34'", status: 'available', sqFt: 1700 },
-    { id: 2, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
+    { id: 1, width: "50'", depth: "34'", status: 'sold', sqFt: 1700 },
+    { id: 2, width: "50'", depth: "30'", status: 'sold', sqFt: 1500 },
     { id: 3, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 4, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 5, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 6, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
-    { id: 7, width: "50'", depth: "30'", status: 'sold', sqFt: 1500 },
-    { id: 8, width: "50'", depth: "30'", status: 'sold', sqFt: 1500 },
+    { id: 7, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
+    { id: 8, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 9, width: "57'-6\"", depth: "30'", status: 'available', sqFt: 1725 },
     { id: 10, width: "57'-6\"", depth: "30'", status: 'available', sqFt: 1725 },
     { id: 11, width: "57'-6\"", depth: "30'", status: 'available', sqFt: 1725 },
@@ -199,43 +199,45 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
               </div>
             </div>
 
-            <div className="w-full lg:w-96 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-xl sm:rounded-2xl p-4 sm:p-6 shadow-2xl">
-              <h2 className="text-xl sm:text-2xl font-display font-bold text-white mb-4 sm:mb-6 bg-gradient-to-r from-white via-gold-200 to-gold-400 bg-clip-text text-transparent">
+            <div className="w-full lg:w-96 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-xl sm:rounded-2xl p-2 sm:p-6 shadow-2xl">
+              <h2 className="text-lg sm:text-2xl font-display font-bold text-white mb-2 sm:mb-6 bg-gradient-to-r from-white via-gold-200 to-gold-400 bg-clip-text text-transparent">
                 Plot Details
               </h2>
 
               {selectedPlot ? (
-                <div className="space-y-3 sm:space-y-4">
-                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-gold-500/20 shadow-lg">
-                    <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2 font-medium">Plot Number</div>
-                    <div className="text-white text-3xl sm:text-4xl font-display font-bold">#{selectedPlot}</div>
+                <div className="space-y-2 sm:space-y-4">
+                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-lg sm:rounded-xl p-2 sm:p-5 border border-gold-500/20 shadow-lg flex items-center justify-between sm:block">
+                    <div className="text-gray-400 text-xs sm:text-sm mb-0 sm:mb-2 font-medium">Plot Number</div>
+                    <div className="text-white text-xl sm:text-4xl font-display font-bold">#{selectedPlot}</div>
                   </div>
 
-                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-gold-500/20 shadow-lg">
-                    <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2 font-medium">Dimensions</div>
-                    <div className="text-gold-300 text-lg sm:text-xl font-semibold">
-                      {getPlotInfo(selectedPlot)?.width} × {getPlotInfo(selectedPlot)?.depth}
+                  <div className="flex gap-2 sm:block space-y-0 sm:space-y-4">
+                    <div className="flex-1 backdrop-blur-xl bg-slate-800/50 rounded-lg sm:rounded-xl p-2 sm:p-5 border border-gold-500/20 shadow-lg">
+                      <div className="text-gray-400 text-xs sm:text-sm mb-0 sm:mb-2 font-medium">Dimensions</div>
+                      <div className="text-gold-300 text-sm sm:text-xl font-semibold">
+                        {getPlotInfo(selectedPlot)?.width} × {getPlotInfo(selectedPlot)?.depth}
+                      </div>
                     </div>
-                  </div>
 
-                  <div className="backdrop-blur-xl bg-slate-800/50 rounded-lg sm:rounded-xl p-4 sm:p-5 border border-gold-500/20 shadow-lg">
-                    <div className="text-gray-400 text-xs sm:text-sm mb-1 sm:mb-2 font-medium">Area</div>
-                    <div className="text-gold-300 text-lg sm:text-xl font-semibold">
-                      {getPlotInfo(selectedPlot)?.sqFt} sq. ft
+                    <div className="flex-1 backdrop-blur-xl bg-slate-800/50 rounded-lg sm:rounded-xl p-2 sm:p-5 border border-gold-500/20 shadow-lg">
+                      <div className="text-gray-400 text-xs sm:text-sm mb-0 sm:mb-2 font-medium">Area</div>
+                      <div className="text-gold-300 text-sm sm:text-xl font-semibold">
+                        {getPlotInfo(selectedPlot)?.sqFt} sq. ft
+                      </div>
                     </div>
                   </div>
 
                   <button
                     onClick={() => setShowContactModal(true)}
-                    className="w-full mt-4 sm:mt-6 px-4 sm:px-6 py-3.5 sm:py-4 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-black font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:from-gold-500 hover:via-gold-600 hover:to-gold-700 transition-all duration-300 shadow-xl hover:shadow-gold-400/50 active:scale-95 hover:scale-105 touch-manipulation"
+                    className="w-full mt-2 sm:mt-6 px-3 sm:px-6 py-2 sm:py-4 bg-gradient-to-r from-gold-400 via-gold-500 to-gold-600 text-black font-semibold text-sm sm:text-base rounded-lg sm:rounded-xl hover:from-gold-500 hover:via-gold-600 hover:to-gold-700 transition-all duration-300 shadow-xl hover:shadow-gold-400/50 active:scale-95 hover:scale-105 touch-manipulation"
                   >
                     Inquire About This Plot
                   </button>
                 </div>
               ) : (
-                <div className="text-center py-12 sm:py-16 text-gray-400">
-                  <div className="text-4xl sm:text-5xl mb-3 sm:mb-4">📍</div>
-                  <p className="font-medium text-sm sm:text-base">Tap a plot to view details</p>
+                <div className="text-center py-4 sm:py-16 text-gray-400">
+                  <div className="text-2xl sm:text-5xl mb-1 sm:mb-4">📍</div>
+                  <p className="font-medium text-xs sm:text-base">Tap a plot to view details</p>
                 </div>
               )}
             </div>
