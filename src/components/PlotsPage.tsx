@@ -59,14 +59,14 @@ export default function PlotsPage({ onBack }: PlotsPageProps) {
   const totalHeight = nhRoadY + 40 - startY;
 
   const plotData = [
-    { id: 1, width: "50'", depth: "34'", x: col2X, y: row1Y, w: col2Width, h: plot1H, sold: false },
-    { id: 2, width: "50'", depth: "30'", x: col2X, y: row2Y, w: col2Width, h: plotH, sold: false },
+    { id: 1, width: "50'", depth: "34'", x: col2X, y: row1Y, w: col2Width, h: plot1H, sold: true },
+    { id: 2, width: "50'", depth: "30'", x: col2X, y: row2Y, w: col2Width, h: plotH, sold: true },
     { id: 3, width: "50'", depth: "30'", x: col2X, y: row3Y, w: col2Width, h: plotH, sold: false },
     { id: 4, width: "50'", depth: "30'", x: col2X, y: row4Y, w: col2Width, h: plotH, sold: false },
     { id: 5, width: "50'", depth: "30'", x: col2X, y: row6Y, w: col2Width, h: plotH, sold: false },
     { id: 6, width: "50'", depth: "30'", x: col2X, y: row7Y, w: col2Width, h: plotH, sold: false },
-    { id: 7, width: "50'", depth: "30'", x: col2X, y: row8Y, w: col2Width, h: plotH, sold: true },
-    { id: 8, width: "50'", depth: "30'", x: col2X, y: row9Y, w: col2Width, h: plotH, sold: true },
+    { id: 7, width: "50'", depth: "30'", x: col2X, y: row8Y, w: col2Width, h: plotH, sold: false },
+    { id: 8, width: "50'", depth: "30'", x: col2X, y: row9Y, w: col2Width, h: plotH, sold: false },
 
     { id: 17, width: "44'-6\"", depth: "30'", x: vRoad3X, y: row1Y, w: 44.5 * scale, h: plotH, sold: false },
     { id: 16, width: "46'-9\"", depth: "30'", x: vRoad3X, y: row2Y, w: 46.75 * scale, h: plotH, sold: false },
