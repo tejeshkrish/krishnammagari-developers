@@ -24,17 +24,7 @@ export default function ExactPlotLayout({ onBack }: ExactPlotLayoutProps) {
       .order('plot_number');
 
     if (!error && data) {
-      // Override statuses as per requirement
-      const updatedData = data.map(plot => {
-        if (plot.plot_number === 1 || plot.plot_number === 2) {
-          return { ...plot, status: 'sold' as const };
-        }
-        if (plot.plot_number === 7 || plot.plot_number === 8) {
-          return { ...plot, status: 'available' as const };
-        }
-        return plot;
-      });
-      setPlots(updatedData);
+      setPlots(data);
     }
   };
 
@@ -44,7 +34,18 @@ export default function ExactPlotLayout({ onBack }: ExactPlotLayoutProps) {
 
   const getPlot = (num: number) => plots.find(p => p.plot_number === num);
 
-
+  const getStatusColor = (status: string) => {
+    switch (status) {
+      case 'available':
+        return '#10b981';
+      case 'reserved':
+        return '#f59e0b';
+      case 'sold':
+        return '#64748b';
+      default:
+        return '#71717a';
+    }
+  };
 
   return (
     <div className="min-h-screen bg-slate-900 text-white">

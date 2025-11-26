@@ -21,8 +21,8 @@ export default function FabricPlotLayout({ onBack }: FabricPlotLayoutProps) {
   const [showContactModal, setShowContactModal] = useState(false);
 
   const plotsInfo: PlotInfo[] = [
-    { id: 1, width: "50'", depth: "34'", status: 'sold' },
-    { id: 2, width: "50'", depth: "30'", status: 'sold' },
+    { id: 1, width: "50'", depth: "34'", status: 'available' },
+    { id: 2, width: "50'", depth: "30'", status: 'available' },
     { id: 3, width: "50'", depth: "30'", status: 'available' },
     { id: 4, width: "50'", depth: "30'", status: 'available' },
     { id: 5, width: "50'", depth: "30'", status: 'available' },

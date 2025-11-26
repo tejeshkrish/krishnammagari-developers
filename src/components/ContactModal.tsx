@@ -22,29 +22,44 @@ export default function ContactModal({ onClose }: ContactModalProps) {
     setSubmitStatus('idle');
 
     try {
-      // Save to database
+      // Save to database (keep this for record keeping)
       const { error: dbError } = await supabase
         .from('inquiries')
         .insert([formData]);
 
-      if (dbError) throw dbError;
+      if (dbError) {
+        console.error('Error saving to database:', dbError);
+        // Continue to send email even if DB save fails, or handle as needed
+      }
 
-      // Send email notification
-      const apiUrl = `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/send-inquiry-email`;
-      await fetch(apiUrl, {
+      // Send email via Web3Forms
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
-          'Authorization': `Bearer ${import.meta.env.VITE_SUPABASE_ANON_KEY}`,
           'Content-Type': 'application/json',
+          'Accept': 'application/json'
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
+          subject: `New Inquiry from ${formData.name}`,
+          ...formData
+        })
       });
 
-      setSubmitStatus('success');
-      setTimeout(() => {
-        onClose();
-      }, 2000);
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmitStatus('success');
+        setTimeout(() => {
+          onClose();
+          setFormData({ name: '', email: '', phone: '', message: '' });
+        }, 2000);
+      } else {
+        console.error('Web3Forms Error:', result);
+        setSubmitStatus('error');
+      }
     } catch (error) {
+      console.error('Submission Error:', error);
       setSubmitStatus('error');
     }
     setIsSubmitting(false);
