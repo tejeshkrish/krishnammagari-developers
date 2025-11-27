@@ -4,14 +4,16 @@ import { supabase } from '../lib/supabase';
 
 interface ContactModalProps {
   onClose: () => void;
+  plotNumber?: number | null;
 }
 
-export default function ContactModal({ onClose }: ContactModalProps) {
+export default function ContactModal({ onClose, plotNumber }: ContactModalProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
-    message: ''
+    message: '',
+    plotNumber: plotNumber ? `Plot #${plotNumber}` : ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
@@ -41,8 +43,12 @@ export default function ContactModal({ onClose }: ContactModalProps) {
         },
         body: JSON.stringify({
           access_key: import.meta.env.VITE_WEB3FORMS_ACCESS_KEY,
-          subject: `New Inquiry from ${formData.name}`,
-          ...formData
+          subject: `New Inquiry from ${formData.name} ${plotNumber ? `for Plot #${plotNumber}` : ''}`,
+          from_name: 'Krishnammagari Developers',
+          // Web3Forms sends the data as a table by default. 
+          // We can't inject custom HTML into the 'message' field effectively without it being escaped.
+          // So we'll send the raw data and let Web3Forms handle the formatting.
+          ...formData,
         })
       });
 
@@ -52,7 +58,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
         setSubmitStatus('success');
         setTimeout(() => {
           onClose();
-          setFormData({ name: '', email: '', phone: '', message: '' });
+          setFormData({ name: '', email: '', phone: '', message: '', plotNumber: '' });
         }, 2000);
       } else {
         console.error('Web3Forms Error:', result);
@@ -78,7 +84,7 @@ export default function ContactModal({ onClose }: ContactModalProps) {
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-6 space-y-4 sm:space-y-5" autoComplete="off" data-lpignore="true" data-form-type="other">
           <div>
             <label htmlFor="name" className="block text-xs sm:text-sm font-medium text-gold-300 mb-1.5 sm:mb-2">
               Full Name
@@ -86,26 +92,18 @@ export default function ContactModal({ onClose }: ContactModalProps) {
             <input
               type="text"
               id="name"
+              name="name"
+              autoComplete="off"
+              data-form-type="other"
+              data-lpignore="true"
+              data-1p-ignore="true"
+              readOnly
+              onFocus={(e) => e.target.removeAttribute('readonly')}
               required
               value={formData.name}
               onChange={(e) => setFormData({ ...formData, name: e.target.value })}
               className="w-full px-3 sm:px-4 py-2.5 sm:py-3 backdrop-blur-xl bg-slate-800/50 border border-gold-500/20 rounded-lg sm:rounded-xl text-white text-sm sm:text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all"
               placeholder="Enter your name"
-            />
-          </div>
-
-          <div>
-            <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gold-300 mb-1.5 sm:mb-2">
-              Email Address
-            </label>
-            <input
-              type="email"
-              id="email"
-              required
-              value={formData.email}
-              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 backdrop-blur-xl bg-slate-800/50 border border-gold-500/20 rounded-lg sm:rounded-xl text-white text-sm sm:text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all"
-              placeholder="your@email.com"
             />
           </div>
 
@@ -116,6 +114,13 @@ export default function ContactModal({ onClose }: ContactModalProps) {
             <input
               type="tel"
               id="phone"
+              name="phone"
+              autoComplete="off"
+              data-form-type="other"
+              data-lpignore="true"
+              data-1p-ignore="true"
+              readOnly
+              onFocus={(e) => e.target.removeAttribute('readonly')}
               required
               value={formData.phone}
               onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
@@ -125,11 +130,39 @@ export default function ContactModal({ onClose }: ContactModalProps) {
           </div>
 
           <div>
+            <label htmlFor="email" className="block text-xs sm:text-sm font-medium text-gold-300 mb-1.5 sm:mb-2">
+              Email Address (Optional)
+            </label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              autoComplete="off"
+              data-form-type="other"
+              data-lpignore="true"
+              data-1p-ignore="true"
+              readOnly
+              onFocus={(e) => e.target.removeAttribute('readonly')}
+              value={formData.email}
+              onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+              className="w-full px-3 sm:px-4 py-2.5 sm:py-3 backdrop-blur-xl bg-slate-800/50 border border-gold-500/20 rounded-lg sm:rounded-xl text-white text-sm sm:text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all"
+              placeholder="your@email.com"
+            />
+          </div>
+
+          <div>
             <label htmlFor="message" className="block text-xs sm:text-sm font-medium text-gold-300 mb-1.5 sm:mb-2">
               Message (Optional)
             </label>
             <textarea
               id="message"
+              name="message"
+              autoComplete="off"
+              data-form-type="other"
+              data-lpignore="true"
+              data-1p-ignore="true"
+              readOnly
+              onFocus={(e) => e.target.removeAttribute('readonly')}
               rows={3}
               value={formData.message}
               onChange={(e) => setFormData({ ...formData, message: e.target.value })}
@@ -137,6 +170,21 @@ export default function ContactModal({ onClose }: ContactModalProps) {
               placeholder="Any specific requirements or questions?"
             />
           </div>
+
+          {plotNumber && (
+            <div>
+              <label htmlFor="plotNumber" className="block text-xs sm:text-sm font-medium text-gold-300 mb-1.5 sm:mb-2">
+                Selected Plot
+              </label>
+              <input
+                type="text"
+                id="plotNumber"
+                readOnly
+                value={`Plot #${plotNumber}`}
+                className="w-full px-3 sm:px-4 py-2.5 sm:py-3 backdrop-blur-xl bg-slate-800/50 border border-gold-500/20 rounded-lg sm:rounded-xl text-gold-400 font-bold text-sm sm:text-base cursor-not-allowed opacity-80"
+              />
+            </div>
+          )}
 
           {submitStatus === 'success' && (
             <div className="backdrop-blur-xl bg-emerald-500/20 border border-emerald-400 text-emerald-300 px-3 sm:px-4 py-2.5 sm:py-3 rounded-lg sm:rounded-xl font-medium text-sm sm:text-base">

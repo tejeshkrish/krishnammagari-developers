@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { ArrowLeft, Compass } from 'lucide-react';
+import { ArrowLeft, ArrowUp } from 'lucide-react';
 import { supabase, Plot } from '../lib/supabase';
 import PlotItem from './PlotItem';
 import ContactModal from './ContactModal';
@@ -24,7 +24,16 @@ export default function PlotLayout({ onBack }: PlotLayoutProps) {
       .order('plot_number');
 
     if (!error && data) {
-      setPlots(data);
+      const updatedData = data.map(p => {
+        if (p.plot_number === 1 || p.plot_number === 2) {
+          return { ...p, status: 'sold' as const };
+        }
+        if (p.plot_number === 7 || p.plot_number === 8) {
+          return { ...p, status: 'available' as const };
+        }
+        return p;
+      });
+      setPlots(updatedData);
     }
   };
 
@@ -76,13 +85,25 @@ export default function PlotLayout({ onBack }: PlotLayoutProps) {
               </div>
             </div>
           </div>
-          <div className="flex items-center gap-2 text-slate-400">
-            <Compass className="w-5 h-5" />
-            <span className="text-sm">North Direction →</span>
-          </div>
+          
+          
         </div>
 
-        <div className="bg-slate-800 rounded-xl p-8 border-4 border-blue-600 shadow-2xl">
+        <div className="bg-slate-800 rounded-xl p-8 border-4 border-blue-600 shadow-2xl relative">
+          {/* Innovative Compact North Indicator */}
+          <div className="absolute top-4 right-4 bg-slate-900/80 backdrop-blur-md border border-slate-600 rounded-full px-4 py-2 flex items-center gap-2 shadow-xl z-10 hover:bg-slate-900 transition-colors cursor-help group">
+            <div className="w-2 h-2 bg-red-500 rounded-full animate-pulse shadow-[0_0_8px_rgba(239,68,68,0.6)]" />
+            <span className="text-xs font-bold text-slate-200 tracking-wider">NORTH</span>
+            <div className="bg-slate-700 rounded-full p-1">
+              <ArrowUp className="w-3 h-3 text-emerald-400" />
+            </div>
+            
+            {/* Tooltip */}
+            <div className="absolute top-full right-0 mt-2 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900 text-xs text-slate-400 px-2 py-1 rounded border border-slate-700 whitespace-nowrap pointer-events-none">
+              Top side is North
+            </div>
+          </div>
+
           <div className="grid grid-cols-1 lg:grid-cols-12 gap-4">
             <div className="lg:col-span-5 space-y-4">
               <div className="grid grid-cols-2 gap-4">

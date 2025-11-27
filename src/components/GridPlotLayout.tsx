@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { ArrowLeft, Navigation } from 'lucide-react';
+import { ArrowLeft, ArrowUp } from 'lucide-react';
 import ContactModal from './ContactModal';
 
 interface GridPlotLayoutProps {
@@ -19,14 +19,14 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
   const [showContactModal, setShowContactModal] = useState(false);
 
   const plotsInfo: PlotInfo[] = [
-    { id: 1, width: "50'", depth: "34'", status: 'available', sqFt: 1700 },
-    { id: 2, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
+    { id: 1, width: "50'", depth: "34'", status: 'sold', sqFt: 1700 },
+    { id: 2, width: "50'", depth: "30'", status: 'sold', sqFt: 1500 },
     { id: 3, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 4, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 5, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 6, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
-    { id: 7, width: "50'", depth: "30'", status: 'sold', sqFt: 1500 },
-    { id: 8, width: "50'", depth: "30'", status: 'sold', sqFt: 1500 },
+    { id: 7, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
+    { id: 8, width: "50'", depth: "30'", status: 'available', sqFt: 1500 },
     { id: 9, width: "57'-6\"", depth: "30'", status: 'available', sqFt: 1725 },
     { id: 10, width: "57'-6\"", depth: "30'", status: 'available', sqFt: 1725 },
     { id: 11, width: "57'-6\"", depth: "30'", status: 'available', sqFt: 1725 },
@@ -121,7 +121,18 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
           <div className="flex flex-col-reverse lg:flex-row gap-4 sm:gap-6 lg:gap-8">
             <div className="flex-1 backdrop-blur-xl bg-slate-900/40 border border-gold-500/20 rounded-xl sm:rounded-2xl p-2 sm:p-4 lg:p-8 shadow-2xl overflow-x-auto">
 
-              <div className="border-2 sm:border-4 border-blue-600 p-0 relative bg-white" style={{ minWidth: '320px', maxWidth: '1600px', margin: '0 auto' }}>
+              <div className="border-2 sm:border-4 border-blue-600 pt-12 sm:pt-20 relative bg-white" style={{ minWidth: '320px', maxWidth: '1600px', margin: '0 auto' }}>
+                <div className="absolute top-1 right-2 sm:top-3 sm:right-4 z-10 pointer-events-none">
+                  <div className="relative w-10 h-10 sm:w-14 sm:h-14 flex items-center justify-center bg-white rounded-full border border-slate-300 shadow-sm">
+                    <span className="absolute top-0.5 text-[8px] sm:text-[10px] font-bold text-slate-800">N</span>
+                    <span className="absolute bottom-0.5 text-[8px] sm:text-[10px] font-bold text-slate-800">S</span>
+                    <span className="absolute left-1 text-[8px] sm:text-[10px] font-bold text-slate-800">W</span>
+                    <span className="absolute right-1 text-[8px] sm:text-[10px] font-bold text-slate-800">E</span>
+                    <div className="w-full h-[1px] bg-slate-300/50"></div>
+                    <div className="h-full w-[1px] bg-slate-300/50 absolute"></div>
+                    <ArrowUp className="absolute w-3 h-3 sm:w-4 sm:h-4 text-red-500 -translate-y-1" strokeWidth={2.5} />
+                  </div>
+                </div>
 
                 <div className="flex">
 
@@ -243,7 +254,7 @@ export default function GridPlotLayout({ onBack }: GridPlotLayoutProps) {
         </div>
       </div>
 
-      {showContactModal && <ContactModal onClose={() => setShowContactModal(false)} />}
+      {showContactModal && <ContactModal onClose={() => setShowContactModal(false)} plotNumber={selectedPlot} />}
     </div>
   );
 }
