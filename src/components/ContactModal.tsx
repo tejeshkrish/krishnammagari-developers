@@ -20,6 +20,13 @@ export default function ContactModal({ onClose, plotNumber }: ContactModalProps)
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    
+    // Validate required fields
+    if (!formData.name.trim() || !formData.phone.trim()) {
+      alert('Please enter your Name and Phone Number');
+      return;
+    }
+
     setIsSubmitting(true);
     setSubmitStatus('idle');
 
@@ -115,6 +122,8 @@ export default function ContactModal({ onClose, plotNumber }: ContactModalProps)
               type="tel"
               id="phone"
               name="phone"
+              inputMode="numeric"
+              pattern="[0-9]*"
               autoComplete="off"
               data-form-type="other"
               data-lpignore="true"
@@ -123,9 +132,12 @@ export default function ContactModal({ onClose, plotNumber }: ContactModalProps)
               onFocus={(e) => e.target.removeAttribute('readonly')}
               required
               value={formData.phone}
-              onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
+              onChange={(e) => {
+                const value = e.target.value.replace(/\D/g, '');
+                setFormData({ ...formData, phone: value });
+              }}
               className="w-full px-2 sm:px-4 py-1.5 sm:py-3 backdrop-blur-xl bg-slate-800/50 border border-gold-500/20 rounded-md sm:rounded-xl text-white text-xs sm:text-base placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-gold-500 focus:border-transparent transition-all"
-              placeholder="+91 98765 43210"
+              placeholder="9876543210"
             />
           </div>
 
